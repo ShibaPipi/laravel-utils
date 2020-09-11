@@ -8,21 +8,6 @@
 
 use Shibapipi\Utils\ApiResponse;
 
-if (!function_exists('mb_str_split')) {
-    /**
-     * 把字符串拆散成数组，支持中文汉字
-     * User: Shibapipi
-     * Date: 2020-07-17
-     *
-     * @param string $string
-     * @return array
-     */
-    function mb_str_split(string $string): array
-    {
-        return preg_split('/(?<!^)(?!$)/u', $string);
-    }
-}
-
 if (!function_exists('api_response')) {
     /**
      * 处理 api / ajax 形式的返回结果。
