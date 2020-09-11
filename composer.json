@@ -1,0 +1,32 @@
+{
+    "name": "shibapipi/utils",
+    "description": "some amazing utils of laravel",
+    "type": "library",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "php": ">=7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shibapipi",
+            "email": "patricksun1993@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Shibapipi\\Utils\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shibapipi\\Utils\\Tests\\": "tests/"
+        }
+    }
+}
