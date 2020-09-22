@@ -104,16 +104,16 @@ class ExceptionReport
         if ($this->exception instanceof ValidationException) {
             $error = Arr::first($this->exception->errors());
 
-            return api()->failed(Arr::first($error), $this->exception->status);
+            return api_response()->failed(Arr::first($error), $this->exception->status);
         }
 
         $message = $this->doReport[$this->report];
 
-        return api()->failed($message[0], $message[1]);
+        return api_response()->failed($message[0], $message[1]);
     }
 
     public function prodReport()
     {
-        return api()->failed('服务器错误', '500');
+        return api_response()->failed('服务器错误', '500');
     }
 }

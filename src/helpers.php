@@ -73,3 +73,51 @@ if (!function_exists('build_query_where')) {
         return $whereBuilder;
     }
 }
+
+if (!function_exists('request_os')) {
+    /**
+     * 解析 user-agent，获取操作系统
+     * @param string $userAgent
+     * @return string
+     */
+    function request_os(string $userAgent): string
+    {
+        $os = 'unknown';
+        if (preg_match('/linux/i', $userAgent)) {
+            $os = 'linux';
+        } elseif (preg_match('/macintosh|mac os x/i', $userAgent)) {
+            $os = 'mac';
+        } elseif (preg_match('/windows|win32/i', $userAgent)) {
+            $os = 'windows';
+        }
+
+        return $os;
+    }
+}
+
+if (!function_exists('request_browser')) {
+    /**
+     * 解析 user-agent，获取浏览器名称
+     * @param string $userAgent
+     * @return string
+     */
+    function request_browser(string $userAgent): string
+    {
+        $browser = 'unknown';
+        if (preg_match('/MSIE/i', $userAgent) && !preg_match('/Opera/i', $userAgent)) {
+            $browser = 'Internet Explorer';
+        } elseif (preg_match('/Firefox/i', $userAgent)) {
+            $browser = 'Mozilla Firefox';
+        } elseif (preg_match('/Chrome/i', $userAgent)) {
+            $browser = 'Google Chrome';
+        } elseif (preg_match('/Safari/i', $userAgent)) {
+            $browser = 'Apple Safari';
+        } elseif (preg_match('/Opera/i', $userAgent)) {
+            $browser = 'Opera';
+        } elseif (preg_match('/Netscape/i', $userAgent)) {
+            $browser = 'Netscape';
+        }
+
+        return $browser;
+    }
+}
