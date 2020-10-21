@@ -104,7 +104,7 @@ class ExceptionReport
         if ($this->exception instanceof ValidationException) {
             $error = Arr::first($this->exception->errors());
 
-            return api_response()->failed(Arr::first($error), $this->exception->status);
+            return api_response()->failed(Arr::first($error));
         }
 
         $message = $this->doReport[$this->report];
