@@ -6,7 +6,7 @@
  * Date: 2020/4/27
  */
 
-use Shibapipi\Utils\ApiResponse;
+use Shibapipi\Utils\ApiResponse\ApiResponseHandler as ApiResponse;
 
 if (!function_exists('api_response')) {
     /**
@@ -119,5 +119,19 @@ if (!function_exists('request_browser')) {
         }
 
         return $browser;
+    }
+}
+
+if (!function_exists('rich_to_text')) {
+    /**
+     * 将字符串中的一些预定义的 HTML 实体转换为字符
+     * 将字符串中的空格替换成空
+     * 去除字符串中的 HTML、XML 以及 PHP 的标签，获取纯文本内容
+     * @param string $richText
+     * @return string
+     */
+    function rich_to_text(string $richText)
+    {
+        return strip_tags(str_replace(['&nbsp;', '&ldquo;', '&rdquo;'], '', htmlspecialchars_decode($richText)));
     }
 }
