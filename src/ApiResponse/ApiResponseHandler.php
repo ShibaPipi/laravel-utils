@@ -53,7 +53,7 @@ class ApiResponseHandler
      */
     public function respond(array $responseClsData = [])
     {
-        if ($this->debugEnabled()) {
+        if (config('app.debug') && $this->debugEnabled()) {
             $responseClsData += $this->getDebug();
         }
         return response()->json($responseClsData, $responseClsData['code']);
