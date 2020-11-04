@@ -1,5 +1,5 @@
 {
-    "name": "shibapipi/utils",
+    "name": "shibapipi/laravel-utils",
     "description": "some amazing utils of laravel",
     "type": "library",
     "require": {
